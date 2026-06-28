@@ -1,11 +1,13 @@
 const express = require('express');
 const app = express();
+const connectDB = require('./config/db');
+const partidosRouter = require('./routes/partidos');
 
 app.use(express.json());
 
-// TODO: Configurar la conexión a la base de datos (MongoDB)
+connectDB();
 
-// TODO: Importar y usar las rutas de partidos
+app.use('/partidos', partidosRouter);
 
 const PORT = process.env.PORT || 3000;
 
